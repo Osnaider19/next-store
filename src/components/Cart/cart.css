@@ -1,0 +1,9 @@
+#content_item_cart::-webkit-scrollbar{
+    background-color: transparent;
+    width: 6px;
+}
+#content_item_cart::-webkit-scrollbar-thumb{
+    background-color: #0156FF;
+    width: 6px;
+   
+}
