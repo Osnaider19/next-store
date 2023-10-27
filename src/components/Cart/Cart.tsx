@@ -3,6 +3,7 @@ import { useCartStore } from "@/store/cartStore";
 import { ItemCart } from "./ItemCart";
 import { Total } from "./Total";
 import "./cart.css";
+import { CartEmpty } from "./CartEmpty";
 export const Cart = () => {
   const cart = useCartStore((state) => state.cart);
   return (
@@ -18,21 +19,25 @@ export const Cart = () => {
           <span className="text-sm text-black/50 py-2 font-semibold">
             {cart.length} items in cart
           </span>
-          <div
-            className="w-full pb-[150px] overflow-hidden overflow-y-auto "
-            id="content_item_cart"
-          >
-            {cart.map((item) => (
-              <ItemCart
-                key={item.id}
-                id={item.id}
-                imagen={item.images[0].url}
-                price={item.price}
-                title={item.title}
-                amount={item.amount}
-              />
-            ))}
-          </div>
+          {cart.length > 0 ? (
+            <div
+              className="w-full pb-[150px] overflow-hidden overflow-y-auto "
+              id="content_item_cart"
+            >
+              {cart.map((item) => (
+                <ItemCart
+                  key={item.id}
+                  id={item.id}
+                  imagen={item.images[0].url}
+                  price={item.price}
+                  title={item.title}
+                  amount={item.amount}
+                />
+              ))}
+            </div>
+          ) : (
+            <CartEmpty />
+          )}
           <Total />
         </div>
       </div>

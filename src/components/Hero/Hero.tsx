@@ -13,7 +13,7 @@ export const Hero = () => {
     <>
       <div className="w-full h-[340px]">
         <Swiper
-          spaceBetween={30}
+          spaceBetween={0}
           centeredSlides={true}
           autoplay={{
             delay: 5000,
