@@ -1,19 +1,21 @@
-import { IconCart, IconSearch } from "@/Icons/Icons";
-import { Cart } from "../Cart/Cart";
-import { ButtonCart } from "../Buttons/ButtonCart";
-
+"use client";
+import { UserButton } from "@clerk/nextjs";
+import { useSession } from "@clerk/nextjs";
+import Link from "next/link";
 export const Profile = () => {
+  const user = useSession();
   return (
-    <div className="relative flex gap-x-4 px-4 justify-center items-center">
-      <button>
-        <IconSearch />
-      </button>
-      <ButtonCart />
-      <div>
-        <button className="w-[36px] h-[36px] rounded-full bg-[#0156FF]"></button>
-      </div>
-      <Cart />
-      
+    <div>
+      {user.session ? (
+        <UserButton afterSignOutUrl="/" />
+      ) : (
+        <Link
+          href={"/sign-up"}
+          className="py-2 px-4 bg-[#0156FF] rounded-3xl text-white "
+        >
+          Sign Up
+        </Link>
+      )}
     </div>
   );
 };
