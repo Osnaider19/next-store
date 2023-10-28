@@ -1,7 +1,8 @@
+import Link from 'next/link'
 export const Logo = () => {
   return (
-    <div>
+    <Link href="/">
         <img src="../Logo.svg" alt="" />
-    </div>
+    </Link>
   )
 }
