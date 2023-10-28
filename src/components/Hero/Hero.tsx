@@ -17,7 +17,9 @@ export const Hero = () => {
           centeredSlides={true}
           autoplay={{
             delay: 5000,
+            
           }}
+          
           pagination={{
             clickable: true,
           }}
@@ -30,6 +32,7 @@ export const Hero = () => {
               <img
                 src="https://http2.mlstatic.com/D_NQ_841042-MLA72434352173_102023-OO.webp"
                 alt=""
+                loading="lazy"
                 className="h-full w-full"
               />
             </Link>

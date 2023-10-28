@@ -22,11 +22,11 @@ export const Card = ({
       <Link href={"#"}>
         <div className="w-full min-w-full h-[220px] bg-white relative">
           <img src={img} alt="" className="w-full h-full object-contain" />
-          <div className="absolute right-2 top-4 z-20  opacity-0 group-hover:opacity-100 transition-opacity duration-300 ">
+          {/* <div className="absolute right-2 top-4 z-20  opacity-0 group-hover:opacity-100 transition-opacity duration-300 ">
             <button onClick={() => alert()}>
               <IconHeart />
             </button>
-          </div>
+          </div> */}
         </div>
         <div className="px-3 my-2">
           <div className="flex gap-x-1 py-1">

@@ -10,7 +10,7 @@ export const Profile = () => {
       </button>
       <ButtonCart />
       <div>
-        <button className="w-[36px] h-[36px] rounded-full bg-red-400"></button>
+        <button className="w-[36px] h-[36px] rounded-full bg-[#0156FF]"></button>
       </div>
       <Cart />
       

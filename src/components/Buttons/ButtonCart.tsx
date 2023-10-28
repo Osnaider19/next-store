@@ -17,7 +17,7 @@ export const ButtonCart = () => {
     <>
       <button className="relative" onClick={handelClick}>
         <IconCart />
-        {cart.length >= 1 && <span className="absolute -right-1 -top-1 bg-red-500 w-[15px] h-[15px] rounded-full text-[10px] text-center ">{cart.length}</span>}
+        {cart.length >= 1 && <span className="absolute -right-1 -top-1 bg-[#0156FF] w-[15px] h-[15px] text-white rounded-full text-[10px] text-center ">{cart.length}</span>}
       </button>
       <div
         className="fixed top-[69px] left-0 bg-black/30 w-full h-full hidden z-10"
