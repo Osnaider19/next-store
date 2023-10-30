@@ -55,9 +55,18 @@ export const Hero = () => {
               />
             </Link>
           </SwiperSlide>
-         
+          <SwiperSlide>
+            <Link href={"#"} className="w-full h-full ">
+              <img
+                src="https://http2.mlstatic.com/D_NQ_986748-MLA72434534551_102023-OO.webp"
+                alt=""
+                className="h-full w-full"
+              />
+            </Link>
+          </SwiperSlide>
         </Swiper>
       </div>
     </>
   );
 };
+

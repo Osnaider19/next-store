@@ -3,7 +3,7 @@ import { Nav } from "./Nav";
 import { ButtonSearch } from "./ButtonSearch";
 
 export const Search = () => {
-  const [search, setSearch] = useState(true);
+  const [search, setSearch] = useState(false);
   return (
     <>
       {search ? (

@@ -11,9 +11,9 @@ export const Profile = () => {
       ) : (
         <Link
           href={"/sign-up"}
-          className="py-2 px-4 bg-[#0156FF] rounded-3xl text-white "
+          className="py-3 px-5   bg-[#0156FF] rounded-md text-white "
         >
-          Sign Up
+          Sign In
         </Link>
       )}
     </div>

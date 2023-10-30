@@ -15,6 +15,8 @@ export const products = [
     ],
     price: 1000,
     ranting: 4.3,
+
+    category: "play",
   },
   {
     id: 2,
@@ -29,6 +31,7 @@ export const products = [
     ],
     price: 416,
     ranting: 4.3,
+    category: "gamer",
   },
   {
     id: 3,
@@ -50,6 +53,7 @@ export const products = [
     ],
     price: 1439,
     ranting: 4.9,
+    category: "portatil",
   },
   {
     id: 4,
@@ -71,6 +75,7 @@ export const products = [
     ],
     price: 559,
     ranting: 4.3,
+    category: "pc",
   },
   {
     id: 5,
@@ -88,6 +93,7 @@ export const products = [
     ],
     price: 1233,
     ranting: 4.1,
+    category: "portatil",
   },
   {
     id: 6,
@@ -105,5 +111,6 @@ export const products = [
     ],
     price: 310,
     ranting: 4.7,
+    category: "pc",
   },
 ];
