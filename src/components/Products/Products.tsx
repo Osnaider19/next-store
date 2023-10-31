@@ -1,21 +1,19 @@
-"use client";
-
-import { useProductsStore } from "@/store/productsStore";
+import { type Products as Product } from "@/types/types";
 import { Card } from "../Card/Card";
-
-export const Products = () => {
-  const products = useProductsStore((state) => state.products);
+type Props = {
+  products: Product[];
+};
+export const Products = ({ products }: Props) => {
   return (
-    <div className="w-full h-full pl-[230px] py-5">
-      <h2 className="font-bold text-2xl py-2 px-4">New products</h2>
-      <div className="flex w-full  flex-wrap gap-3 min-h-screen  justify-between ">
-        {products?.map((item, index) => (
+    <div className="w-full h-full ">
+      <div className="flex w-full  flex-wrap gap-8 min-h-screen items-start justify-between py-2 px-4">
+        {products?.map((item) => (
           <Card
             id={item.id}
             img={item.images[0].url}
             price={item.price}
             title={item.title}
-            key={index}
+            key={item.id}
           />
         ))}
       </div>

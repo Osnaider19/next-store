@@ -8,7 +8,7 @@ export const Cart = () => {
   const cart = useCartStore((state) => state.cart);
   return (
     <div
-      className="w-[350px] h-[511px] absolute right-24 top-12 bg-slate-50  
+      className="w-[350px] h-[511px] absolute -right-7 top-12 bg-slate-50  
     shadow-[0_35px_60px_15px_rgba(0,0,0,0.3)] border opacity-0 pointer-events-none translate-y-1 transition-all duration-300 z-30"
       id="content_cart"
     >

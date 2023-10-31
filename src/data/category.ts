@@ -1,11 +1,11 @@
 export const category = [
   {
     id: 1,
-    category: "gamer",
+    category: "phone",
   },
   {
     id: 2,
-    category: "portatil",
+    category: "laptops",
   },
   {
     id: 3,
