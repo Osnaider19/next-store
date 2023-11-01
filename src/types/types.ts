@@ -4,9 +4,19 @@ interface Image {
 export type Products = {
   id: number;
   title: string;
-  images: Image[];
   price: number;
+  images: Image[];
+  amount?: number;
   ranting: number;
-  category : string,
+};
 
+export type UnitsItems = {
+  name: string;
+  quantity: string;
+  description: string;
+  category: "DIGITAL_GOODS" | "DONATION" | "PHYSICAL_GOODS";
+  unit_amount: {
+    currency_code: string;
+    value: string;
+  };
 };
