@@ -1,10 +1,13 @@
 "use client";
 import { useCartStore } from "@/store/cartStore";
 import { ItemCart } from "./ItemCart";
-import { Total } from "./Total";
 import "./cart.css";
 import { CartEmpty } from "./CartEmpty";
-export const Cart = () => {
+import dynamic from "next/dynamic";
+const Total = dynamic(() => import("@/components/Cart/Total"), {
+  ssr: false,
+});
+export default function Cart() {
   const cart = useCartStore((state) => state.cart);
   return (
     <div
@@ -43,4 +46,4 @@ export const Cart = () => {
       </div>
     </div>
   );
-};
+}

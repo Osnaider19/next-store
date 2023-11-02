@@ -1,6 +1,10 @@
-import { Cart } from "../Cart/Cart";
-import { ButtonCart } from "../Buttons/ButtonCart";
 import { Profile } from "./Profile";
+import dynamic from "next/dynamic";
+
+const Cart = dynamic(() => import("@/components/Cart/Cart"), { ssr: false });
+const ButtonCart = dynamic(() => import("@/components/Buttons/ButtonCart"), {
+  ssr: false,
+});
 
 export const Panel = () => {
   return (

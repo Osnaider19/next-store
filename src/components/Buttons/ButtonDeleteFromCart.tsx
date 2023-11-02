@@ -8,7 +8,7 @@ export const ButtonDeleteFromCart = ({ id }: { id: number }) => {
     deleteFromCart(id);
   };
   return (
-    <button className="pb-2" onClick={handelClick}>
+    <button className="pb-2 hover:text-red-400 transition-colors duration-200" onClick={handelClick}>
       <IconDelete />
     </button>
   );

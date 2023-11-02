@@ -2,8 +2,8 @@
 import { IconCart } from "@/Icons/Icons";
 import { useCartStore } from "@/store/cartStore";
 
-export const ButtonCart = () => {
-  const cart = useCartStore((state) => state.cart)
+export default function ButtonCart() {
+  const cart = useCartStore((state) => state.cart);
   const handelClick = () => {
     const Cart = document.querySelector("#content_cart") as HTMLElement;
     const backdrop = document.querySelector("#backdrop") as HTMLElement;
@@ -17,8 +17,12 @@ export const ButtonCart = () => {
     <>
       <button className="relative" onClick={handelClick}>
         <IconCart />
-        {cart.length >= 1 && <span className="absolute -right-1 -top-1 bg-[#0156FF] w-[15px] h-[15px] text-white rounded-full text-[10px] text-center ">{cart.length}</span>}
       </button>
+      {cart.length >= 1 && (
+        <div className="absolute -right-1 -top-1 bg-[#0156FF] w-[15px] h-[15px] text-white rounded-full text-[10px] text-center ">
+          {cart.length}
+        </div>
+      )}
       <div
         className="fixed top-[69px] left-0 bg-black/30 w-full h-full hidden z-10"
         id="backdrop"
@@ -26,4 +30,4 @@ export const ButtonCart = () => {
       ></div>
     </>
   );
-};
+}

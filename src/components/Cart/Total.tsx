@@ -1,15 +1,30 @@
 "use client";
 import { pPaypalClientId } from "@/config/config";
 import { useCartStore } from "@/store/cartStore";
-import { PayPalScriptProvider } from "@paypal/react-paypal-js";
-import { ButtonPayPal } from "../Buttons/ButtonPayPal";
+import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 
-export const Total = () => {
+export default function Total() {
   const cart = useCartStore((state) => state.cart);
   const total = cart.reduce((accumulator, item) => {
     return (accumulator += item.price * (item.amount || 1));
   }, 0);
 
+  const orderData = {
+    cart,
+    total,
+  };
+
+  async function handelCheckout() {
+    const res = await fetch("http://localhost:3000/api/checkout", {
+      method: "POST",
+      body: JSON.stringify(orderData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const order = await res.json();
+    return order.id;
+  }
   return (
     <PayPalScriptProvider
       options={{
@@ -22,10 +37,28 @@ export const Total = () => {
             <span className="font-semibold">Total : ${total}</span>
           </div>
           <div className="flex flex-col justify-center items-center gap-y-2 w-full ">
-            <ButtonPayPal cart={cart} total={total}/>
+            {cart.length > 0 && (
+              <PayPalButtons
+                forceReRender={cart}
+                className="w-full px-3"
+                style={{
+                  color: "blue",
+                  label: "checkout",
+                  layout: "horizontal",
+                }}
+                createOrder={async () => handelCheckout()}
+                onApprove={async (data, actions) => {
+                  actions.order?.capture();
+                  console.log(data);
+                }}
+                onCancel={(data) => {
+                  console.log("was canceled in payment", data);
+                }}
+              />
+            )}
           </div>
         </div>
       </div>
     </PayPalScriptProvider>
   );
-};
+}
