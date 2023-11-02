@@ -1,26 +1,16 @@
 import { create } from "zustand";
 import { products } from "../data/products";
-interface CartItem {
-  id: number;
-  title: string;
-  price: number;
-  images: Image[];
-  amount?: number | undefined;
-  ranting: number;
-}
-interface Image {
-  url: string;
-}
-
+import { type Products } from "@/types/types";
+import { persist , createJSONStorage , devtools} from "zustand/middleware";
 interface CartStore {
-  cart: CartItem[];
+  cart: Products[];
   addToCart: (id: number) => void;
   removeFromCart: (id: number) => void;
   clearCart: () => void;
   removeOneFromCart: (id: number) => void;
 }
 
-export const useCartStore = create<CartStore>((set, get) => ({
+export const useCartStore = create<CartStore>()(devtools(persist((set, get) => ({
   cart: [],
   addToCart: (id: number) => {
     const newProduct = products.find((product) => id === product.id);
@@ -70,4 +60,7 @@ export const useCartStore = create<CartStore>((set, get) => ({
   clearCart: () => {
     set({ cart: [] });
   },
-}));
+}) , {
+ name : "cart",
+ storage: createJSONStorage(() => sessionStorage),
+})));
