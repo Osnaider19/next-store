@@ -8,6 +8,7 @@ export type Products = {
   images: Image[];
   amount?: number;
   ranting: number;
+  category : string
 };
 
 export type UnitsItems = {

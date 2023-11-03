@@ -281,4 +281,17 @@ export const products = [
     ranting: 4.8,
     category: "phone",
   },
+  {
+    id: 16,
+    title: "Xiaomi Pocophone Poco F5 Dual SIM 256 GB negro 12 GB RAM",
+    images: [
+      {
+        url: "https://http2.mlstatic.com/D_NQ_NP_635007-MLA69391876343_052023-O.webp",
+      },
+    
+    ],
+    price: 500,
+    ranting: 4.8,
+    category: "phone",
+  },
 ];

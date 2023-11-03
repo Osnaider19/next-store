@@ -4,19 +4,39 @@ import { create } from "zustand";
 
 type ProductStore = {
   products: Products[];
-  filters: (value: string) => void;
   clearFilter: () => void;
+  filters: (minprice: number  , category: string) => void;
 };
 export const useProductsStore = create<ProductStore>((set, get) => ({
   products: products,
-  filters: (value) => {
-    const productFound = products.filter(
-      (product) => value === product.category
-    );
-    console.log(productFound);
-    productFound ? set({ products: productFound }) : set({ products: [] });
-  },
+  
+
   clearFilter: () => {
     set({ products: products });
+  },
+
+  filters: (minprice, category) => {
+    if (category && minprice) {
+      const productsFound = products.filter(
+        (product) => product.price > minprice && category === product.category
+      );
+      set({ products: productsFound });
+      return
+    } 
+    if (category && !minprice) {
+      const productsFound = products.filter(
+        (product) => category === product.category
+      );
+      
+      set({ products: productsFound });
+      return
+    }
+    if (minprice && !category) {
+      const productsFound = products.filter(
+        (product) => product.price > minprice
+      );
+      set({ products: productsFound });
+      return
+    }
   },
 }));

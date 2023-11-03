@@ -1,29 +1,36 @@
 "use client";
 import { pPaypalClientId } from "@/config/config";
 import { useCartStore } from "@/store/cartStore";
+import { useSession } from "@clerk/nextjs";
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
+import { useRouter } from "next/navigation";
 
 export default function Total() {
+  const user = useSession();
+  const router = useRouter()
   const cart = useCartStore((state) => state.cart);
   const total = cart.reduce((accumulator, item) => {
     return (accumulator += item.price * (item.amount || 1));
   }, 0);
 
-  const orderData = {
-    cart,
-    total,
-  };
-
   async function handelCheckout() {
-    const res = await fetch("http://localhost:3000/api/checkout", {
-      method: "POST",
-      body: JSON.stringify(orderData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const order = await res.json();
-    return order.id;
+    if (user.session) {
+      const res = await fetch("http://localhost:3000/api/checkout", {
+        method: "POST",
+        body: JSON.stringify({
+          cart,
+          total,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const order = await res.json();
+      return order.id;
+    }
+    alert("sign in primary");
+    router.push("/sign-in");
+    
   }
   return (
     <PayPalScriptProvider
@@ -46,10 +53,10 @@ export default function Total() {
                   label: "checkout",
                   layout: "horizontal",
                 }}
-                createOrder={async () => handelCheckout()}
+                createOrder={handelCheckout}
                 onApprove={async (data, actions) => {
                   actions.order?.capture();
-                  console.log(data);
+                  console.log("se capturo la compra", data);
                 }}
                 onCancel={(data) => {
                   console.log("was canceled in payment", data);
