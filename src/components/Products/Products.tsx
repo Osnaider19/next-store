@@ -7,7 +7,7 @@ type Props = {
 export const Products = ({ products }: Props) => {
   return (
     <div className="w-full h-full ">
-      <div className="flex w-full  flex-wrap gap-8 min-h-[110vh] items-start justify-between py-2 px-4 ">
+      <div className="flex w-full  flex-wrap gap-8 min-h-[110vh] items-start  py-2 px-4 ">
         {products.length > 0  ? products?.map((item) => (
           <Card
             id={item.id}

@@ -37,7 +37,7 @@ export const Card = ({
       </Link>
       <div
         className="absolute left-0 -bottom-[60px] h-[60px] w-full bg-white 
-      shadow-2xl opacity-0 group-hover:z-20 group-hover:opacity-100 transition-all duration-200 "
+      shadow-2xl opacity-0 group-hover:z-20 group-hover:opacity-100"
       >
         <ButtonAddToCart id={id} />
       </div>

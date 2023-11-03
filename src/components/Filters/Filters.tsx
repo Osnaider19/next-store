@@ -16,11 +16,15 @@ export const Filters = () => {
     }
     return null;
   };
-
+  
   const handelClick = () => {
     const minPrice = parseInt(getValueFromRadios("price")!);
     const category = getValueFromRadios("category");
-
+    
+    document.documentElement.scrollTo( {
+      top: 337,
+      behavior: 'smooth'
+    })
     if (minPrice && category) {
       filterPrice(minPrice, category);
       return;
