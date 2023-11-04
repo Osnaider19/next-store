@@ -10,7 +10,7 @@ export const Profile = () => {
         <UserButton afterSignOutUrl="/" />
       ) : (
         <Link
-          href={"/sign-up"}
+          href={"/sign-in"}
           className="py-3 px-5   bg-[#0156FF] rounded-md text-white "
         >
           Sign In

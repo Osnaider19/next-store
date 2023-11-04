@@ -1,4 +1,3 @@
-import { IconDelete } from "@/Icons/Icons";
 import { ButtonsQuantity } from "../Buttons/ButtonsQuantity";
 import { ButtonDeleteFromCart } from "../Buttons/ButtonDeleteFromCart";
 

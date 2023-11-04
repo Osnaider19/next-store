@@ -1,6 +1,7 @@
+"use client"
 import { IconDelete } from "@/Icons/Icons";
 import { useCartStore } from "@/store/cartStore";
-import React from "react";
+
 
 export const ButtonDeleteFromCart = ({ id }: { id: number }) => {
   const deleteFromCart = useCartStore((state) => state.removeFromCart);
@@ -9,7 +10,7 @@ export const ButtonDeleteFromCart = ({ id }: { id: number }) => {
   };
   return (
     <button className="pb-2 hover:text-red-400 transition-colors duration-200" onClick={handelClick}>
-      <IconDelete />
+       <IconDelete />
     </button>
   );
 };
