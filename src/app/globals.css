@@ -5,3 +5,7 @@
 *{
   max-width: 1360px;
 }
+html {
+  
+  margin: 0 auto;
+}

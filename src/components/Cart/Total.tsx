@@ -15,7 +15,7 @@ export default function Total() {
 
   async function handelCheckout() {
     if (user.session) {
-      const res = await fetch("http://localhost:3000/api/checkout", {
+      const res = await fetch("/api/checkout", {
         method: "POST",
         body: JSON.stringify({
           cart,
@@ -28,7 +28,7 @@ export default function Total() {
       const order = await res.json();
       return order.id;
     }
-    alert("sign in primary");
+    alert("First log in to register the purchase");
     router.push("/sign-in");
     
   }
