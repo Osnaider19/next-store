@@ -62,5 +62,5 @@ export const useCartStore = create<CartStore>()(devtools(persist((set, get) => (
   },
 }) , {
  name : "cart",
- storage: createJSONStorage(() => sessionStorage),
+ storage: createJSONStorage(() => localStorage),
 })));

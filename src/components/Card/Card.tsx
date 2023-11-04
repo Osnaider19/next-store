@@ -1,19 +1,15 @@
-
 import { IconStar } from "@/Icons/Icons";
 import Link from "next/link";
 import { ButtonAddToCart } from "../Buttons/ButtonAddToCart";
 
-export const Card = ({
-  id,
-  title,
-  price,
-  img,
-}: {
+type Props = {
   id: number;
   title: string;
   price: number;
   img: string;
-}) => {
+};
+
+export const Card = ({ id, title, price, img }: Props) => {
   return (
     <div
       className="w-[240px] h-[335px] relative rounded-md  group
@@ -39,7 +35,9 @@ export const Card = ({
         className="absolute left-0 -bottom-[60px] h-[60px] w-full bg-white 
       shadow-2xl opacity-0 group-hover:z-20 group-hover:opacity-100"
       >
-        <ButtonAddToCart id={id} />
+        <div className="flex justify-center items-center w-full">
+          <ButtonAddToCart id={id} />
+        </div>
       </div>
     </div>
   );

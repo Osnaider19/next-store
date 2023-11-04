@@ -46,7 +46,7 @@ export default function Total() {
           <div className="flex flex-col justify-center items-center gap-y-2 w-full ">
             {cart.length > 0 && (
               <PayPalButtons
-                forceReRender={cart}
+                forceReRender={[cart]}
                 className="w-full px-3"
                 style={{
                   color: "blue",

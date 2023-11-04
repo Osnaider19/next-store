@@ -14,7 +14,7 @@ export const ButtonAddToCart = ({ id }: { id: number }) => {
     backdrop.classList.toggle("hidden");
   };
   return (
-    <div className="flex justify-center items-center">
+    
       <button
         className="text-[#0156FF] flex border-[#0156FF] border px-5 py-2 justify-center items-center rounded-3xl"
         onClick={handelClick}
@@ -24,6 +24,6 @@ export const ButtonAddToCart = ({ id }: { id: number }) => {
         </span>
         <span className="font-semibold">Add to cart</span>
       </button>
-    </div>
+    
   );
 };

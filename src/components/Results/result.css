@@ -1,0 +1,14 @@
+
+
+.container__result__search::-webkit-scrollbar{
+    width: 7px;
+    background: rgba(255, 255, 255, .2);
+    transition: all .4s ;
+    border-radius: 100px;
+  }
+  .container__result__search::-webkit-scrollbar-thumb{
+      width: 7px;
+      background:#0156FF;
+      transition: all .4s ;
+      border-radius: 100px;
+    }
