@@ -16,15 +16,27 @@ type Data = {
 const client = new paypal.core.PayPalHttpClient(environment); //app
 
 export async function POST(req: NextRequest) {
-
   const request = new paypal.orders.OrdersCreateRequest(); //creamos la orden
   const data: Data = await req.json(); //transformamos la req a un formato json
-  
+
   const { cart, total } = data; //extraemos los datos de los productos a comprar
+  
+  //validar que los campo no venga vacios 
+  if (cart.length === 0 || total === 0) {
+    return NextResponse.json(
+      {
+        message: "There must be at least one product in the cart",
+      },
+      {
+        status: 404,
+      }
+    );
+  }
 
-  const purchaseUnitsItems: UnitsItems[] = []; //creamos un arry donde van a estar los productos ya mutados con sus repectivos campo como los necesita paypal 
+  const purchaseUnitsItems: UnitsItems[] = []; //creamos un arry donde van a estar los productos ya mutados con sus repectivos campo como los necesita paypal
 
-  cart.forEach((product) => { //recorremos el arry de productos y por cada producto hacemos un push a purchaseUnitsItems 
+  //recorremos el arry de productos y por cada producto hacemos un push a purchaseUnitsItems
+  cart.forEach((product) => {
     purchaseUnitsItems.push({
       name: product.title, // Nombre del producto
       quantity: product.amount ? product.amount.toString() : "1", //cantidad del producto
@@ -63,8 +75,8 @@ export async function POST(req: NextRequest) {
     ],
   });
 
-  const response = await client.execute(request); //ejecutamos la request 
+  const response = await client.execute(request); //ejecutamos la request
   return NextResponse.json({
-    id: response.result.id, //respondemos con el id de la orden 
+    id: response.result.id, //respondemos con el id de la orden
   });
 }
