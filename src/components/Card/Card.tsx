@@ -12,11 +12,11 @@ type Props = {
 export const Card = ({ id, title, price, img }: Props) => {
   return (
     <div
-      className="w-[240px] h-[335px] relative rounded-md  group
-     hover:shadow-2xl transition-shadow duration-100"
+      className="w-[200px] h-[300px] relative rounded-md  group
+     hover:shadow-2xl transition-shadow duration-100 lg:w-[240px] lg:h-[335px]"
     >
       <Link href={"#"}>
-        <div className="w-full min-w-full h-[220px] bg-white relative px-2">
+        <div className="w-full min-w-full h-[180px] lg:h-[220px] bg-white relative px-2">
           <img src={img} alt="" className="w-full h-full object-contain" />
         </div>
         <div className="px-3 my-2">

@@ -1,5 +1,6 @@
 "use client";
 import { price } from "@/data/price";
+import { closeMenu } from "@/helpers/helpers";
 import { useProductsStore } from "@/store/productsStore";
 
 export const FilterPrice = () => {
@@ -20,10 +21,7 @@ export const FilterPrice = () => {
   const handelClick = () => {
     const minPrice = parseInt(getValueFromRadios("price")!);
     const category = getValueFromRadios("category");
-    document.documentElement.scrollTo( {
-      top: 337,
-      behavior: 'smooth'
-    })
+    closeMenu()
     if (minPrice && category) {
       filterPrice(minPrice, category);
       return;
@@ -39,10 +37,10 @@ export const FilterPrice = () => {
   };
 
   return (
-    <div className="py-3">
+    <div className="py-3 h-full w-full ">
       <h4 className="font-semibold py-2">Price</h4>
-      {price.map(({ id, maxprice, minprice }) => (
-        <div className="w-full flex gap-3 form" key={id}>
+      {price.map(({ id,  minprice }) => (
+        <div className="w-full  flex gap-3 form" key={id}>
           <label
             htmlFor={id.toString()}
             className="cursor-pointer block w-full py-2 capitalize hover:text-[#0156FF]"

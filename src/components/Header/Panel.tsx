@@ -1,3 +1,4 @@
+import { ButtonMenu } from "./ButtonMenu";
 import { Profile } from "./Profile";
 import dynamic from "next/dynamic";
 
@@ -13,7 +14,12 @@ export const Panel = () => {
         <ButtonCart />
         <Cart />
       </div>
-      <Profile />
+      <div className="relative ">
+        <Profile />
+      </div>
+      <div className="flex justify-center items-center lg:hidden">
+        <ButtonMenu />
+      </div>
     </div>
   );
 };

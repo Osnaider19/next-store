@@ -9,8 +9,10 @@ export default function Home() {
       <Hero />
       <div className="w-full">
         <div className="flex justify-center items-center relative">
-          <Filters />
-          <div className="pl-[250px] w-full">
+          <div className="hidden lg:block">
+            <Filters />
+          </div>
+          <div className="lg:pl-[250px] w-full">
             <HomeProducts />
           </div>
         </div>

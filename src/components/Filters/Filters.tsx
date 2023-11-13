@@ -4,6 +4,7 @@ import { category } from "@/data/category";
 import { useProductsStore } from "@/store/productsStore";
 import "./radio.css";
 import { FilterPrice } from "./FilterPrice";
+import { closeMenu } from "@/helpers/helpers";
 export const Filters = () => {
   const filterPrice = useProductsStore((state) => state.filters);
   const clearFilter = useProductsStore((state) => state.clearFilter);
@@ -16,15 +17,12 @@ export const Filters = () => {
     }
     return null;
   };
-  
+
   const handelClick = () => {
     const minPrice = parseInt(getValueFromRadios("price")!);
     const category = getValueFromRadios("category");
-    
-    document.documentElement.scrollTo( {
-      top: 337,
-      behavior: 'smooth'
-    })
+    closeMenu();
+
     if (minPrice && category) {
       filterPrice(minPrice, category);
       return;
@@ -53,9 +51,10 @@ export const Filters = () => {
       radiosPrice[i].checked = false;
     }
     clearFilter();
+    closeMenu();
   };
   return (
-    <div className="w-[250px] h-full min-h-screen absolute top-0 left-0 bg-[#F5F7FF] overflow-hidden py-5">
+    <div className="w-full lg:w-[250px] h-full  min-h-screen absolute top-0 left-0 bg-[#F5F7FF]  py-5 lg:block">
       <div className="relative w-full h-full px-4 py-3">
         <h3 className="py-2 text-center font-semibold">Filters</h3>
         <div className="w-full flex justify-center items-center pb-4 text-white ">

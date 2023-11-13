@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 
 export default function Total() {
   const user = useSession();
-  const router = useRouter()
+  const router = useRouter();
   const cart = useCartStore((state) => state.cart);
   const total = cart.reduce((accumulator, item) => {
     return (accumulator += item.price * (item.amount || 1));
@@ -28,9 +28,8 @@ export default function Total() {
       const order = await res.json();
       return order.id;
     }
-    alert("First log in to register the purchase");
+
     router.push("/sign-in");
-    
   }
   return (
     <PayPalScriptProvider
@@ -59,7 +58,7 @@ export default function Total() {
                   console.log("se capturo la compra", data);
                 }}
                 onCancel={(data) => {
-                  console.log("was canceled in payment", data);
+                  console.log("was canceled in payment");
                 }}
               />
             )}

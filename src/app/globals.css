@@ -6,6 +6,6 @@
   max-width: 1360px;
 }
 html {
-  
+  overflow-x: hidden;
   margin: 0 auto;
 }

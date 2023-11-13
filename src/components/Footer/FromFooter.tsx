@@ -16,7 +16,7 @@ export const FromFooter = () => {
   };
   return (
     <div className="w-full h-full bg-[#000] text-white py-9">
-      <div className="flex justify-between items-center w-[80%] m-auto">
+      <div className="flex flex-col justify-between items-center w-[80%] m-auto  lg:flex-row">
         <div>
           <h4 className="text-3xl font-semibold">Sign Up To Our Newsletter.</h4>
           <p className="py-2 text-xl">

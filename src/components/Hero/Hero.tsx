@@ -11,7 +11,7 @@ import Link from "next/link";
 export const Hero = () => {
   return (
     <>
-      <div className="w-full h-[340px]">
+      <div className="w-full h-[150px] lg:h-[340px]">
         <Swiper
           spaceBetween={0}
           centeredSlides={true}
@@ -33,7 +33,7 @@ export const Hero = () => {
                 src="https://http2.mlstatic.com/D_NQ_841042-MLA72434352173_102023-OO.webp"
                 alt=""
                 loading="lazy"
-                className="h-full w-full"
+                className="h-full w-full "
               />
             </Link>
           </SwiperSlide>

@@ -4,7 +4,7 @@ import { FromFooter } from "./FromFooter";
 export const Footer = () => {
   return (
     <section className="w-full h-full bg-[#F5F7FF] pt-9">
-      <div className="flex justify-evenly items-center py-7 flex-wrap">
+      <div className="flex  justify-evenly items-center py-7 flex-wrap">
         <div className="flex justify-center items-center flex-col w-[270px]">
           <IconSupport />
           <h4 className="font-bold text-center py-3">Product Support</h4>
@@ -14,9 +14,9 @@ export const Footer = () => {
         </div>
 
         <div className="flex justify-center items-center flex-col w-[270px]">
-        <div className="w-[65px] h-[65px] rounded-full bg-[#0156FF]">
-          <IconAccount/>
-        </div>
+          <div className="w-[65px] h-[65px] rounded-full bg-[#0156FF]">
+            <IconAccount />
+          </div>
           <h4 className="font-bold text-center py-3">Personal Account</h4>
           <p className="text-center">
             With big discounts, free delivery and a dedicated support
@@ -26,7 +26,7 @@ export const Footer = () => {
 
         <div className="flex justify-center items-center flex-col w-[270px]">
           <div className="w-[65px] h-[65px] rounded-full bg-[#0156FF]">
-          <IconSaving />
+            <IconSaving />
           </div>
           <h4 className="font-bold text-center py-3">Amazing Savings</h4>
           <p className="text-center">
@@ -34,7 +34,7 @@ export const Footer = () => {
           </p>
         </div>
       </div>
-      <FromFooter/>
+      <FromFooter />
     </section>
   );
 };
