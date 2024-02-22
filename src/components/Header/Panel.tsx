@@ -9,7 +9,7 @@ const ButtonCart = dynamic(() => import("@/components/Buttons/ButtonCart"), {
 
 export const Panel = () => {
   return (
-    <div className="relative flex gap-x-4 px-4 justify-center items-center">
+    <div className="relative flex gap-x-4 px-4 justify-center items-center  min-w-[200px]">
       <div className="relative flex justify-center items-center ">
         <ButtonCart />
         <Cart />

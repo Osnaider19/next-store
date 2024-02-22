@@ -5,17 +5,17 @@ import Link from "next/link";
 export const Profile = () => {
   const user = useSession();
   return (
-    <div>
+    <>
       {user.session ? (
-        <UserButton afterSignOutUrl="/" />
+        <UserButton afterSignOutUrl="/"/>
       ) : (
         <Link
           href={"/sign-in"}
-          className="py-3 px-5   bg-[#0156FF] rounded-md text-white "
+          className="py-3 px-5 block  w-full min-w-full bg-[#0156FF] rounded-md text-white "
         >
           Sign In
         </Link>
       )}
-    </div>
+    </>
   );
 };
